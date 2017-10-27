@@ -28,21 +28,21 @@ module proc(
     input clk,
     output[15:0] y
     );
-    reg [2:0] cuenta;
-    reg [2:0] suma;
+    reg [15:0] cuenta;
+    reg [15:0] suma;
     reg [15:0]ym;
     
     assign y = ym;
     always @ (posedge clk )
     begin
         if (reset == 1'b1)			
-            cuenta = 3'b000;
+            cuenta = 16'h0000;
         else
 		begin
-        if (cuenta < 3'b011)
-             cuenta = cuenta + 3'b001;
+        if (cuenta < 16'h0003)
+             cuenta = cuenta + 16'h0001;
         else
-        	cuenta = 3'b000; 
+        	cuenta = 16'h0000; 
 		end         
 	end
 	
@@ -52,19 +52,19 @@ module proc(
         if (reset == 1'b1)
         	begin
              ym = x_init;
-             suma = 3'b000;
+             suma = 16'h0000;
         	end
 		else
         begin   
-        	if (cuenta < 3'b011)
+        	if (cuenta < 16'h0003)
         		begin
              	ym = x;
-            	 suma = suma + x *a;
+            	 suma = suma + x * a;
         		end
        	 else
         		begin
             	ym = suma + x * a;
-             	suma = 3'b000; 
+             	suma = 16'h0000; 
         		end
          end
      end
