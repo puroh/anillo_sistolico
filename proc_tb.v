@@ -21,12 +21,12 @@
 
 
 module proc_tb( );
-    reg [7:0] x;
-    reg [7:0] x_init;
-    reg  [7:0] a;
+    reg [15:0] x;
+    reg [15:0] x_init;
+    reg  [15:0] a;
     reg reset;
     reg clk;
-    wire [7:0] y;
+    wire [15:0] y;
 
 
 	proc uut(
@@ -50,9 +50,9 @@ initial begin
 	#50;
 	reset = 1'b0;
 	#50;
-	a  = 8'h01;
-	x_init = 8'h01;
-	x  = 8'h01;
+	a  = 16'h0001;
+	x_init = 16'h0001;
+	x  = 16'h0001;
 	#100;
 	reset = 1'b1;
 	#50;
