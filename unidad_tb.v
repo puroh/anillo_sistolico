@@ -23,9 +23,10 @@
 module unidad_tb();
    
     reg [15:0] a1,a2,a3,a4;
+    wire [15:0] y1,y2,y3,y4;
     reg reset;
     reg clk;
-    wire [15:0] y;
+    //wire [15:0] y;
 	parameter x1 = 16'h0004;
     parameter x2 = 16'h0003;
     parameter x3 = 16'h0002;
@@ -42,7 +43,11 @@ module unidad_tb();
 		.a4(a4),
 		.reset(reset),
 		.clk(clk),		
-		.y(y)
+		.y1(y1),
+		.y2(y2),
+		.y3(y3),
+		.y4(y4)
+		
 		);
 
 	always begin
@@ -55,15 +60,15 @@ module unidad_tb();
 initial begin
 	
 	reset = 1'b1;
-	#50;
+	#75;
 	reset = 1'b0;
-	#50;
+	#25;
 	a1 = 16'h0001;
 	a2 = 16'h0008;
 	a3 = 16'h000a;
 	a4 = 16'h000f;
 	#100;
-	a1 = 16'h0001;
+	a1 = 16'h0002;
 	a2 = 16'h0005;
 	a3 = 16'h0009;
 	a4 = 16'h000e;

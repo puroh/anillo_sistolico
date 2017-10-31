@@ -36,13 +36,13 @@ module proc(
     always @ (posedge clk )
     begin
         if (reset == 1'b1)			
-            cuenta = 16'h0000;
+            cuenta <= 16'h0000;
         else
 		begin
         if (cuenta < 16'h0003)
-             cuenta = cuenta + 16'h0001;
+             cuenta <= cuenta + 16'h0001;
         else
-        	cuenta = 16'h0000; 
+        	cuenta <= 16'h0000; 
 		end         
 	end
 	
@@ -51,20 +51,20 @@ module proc(
     begin
         if (reset == 1'b1)
         	begin
-             ym = x_init;
-             suma = 16'h0000;
+             ym <= x_init;
+             suma <= 16'h0000;
         	end
 		else
         begin   
         	if (cuenta < 16'h0003)
         		begin
-             	ym = x;
-            	 suma = suma + x * a;
+             	ym <= x;
+            	 suma <= suma + x * a;
         		end
        	 else
         		begin
-            	ym = suma + x * a;
-             	suma = 16'h0000; 
+            	ym <= suma + x * a;
+             	suma <= 16'h0000; 
         		end
          end
      end

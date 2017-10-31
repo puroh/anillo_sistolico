@@ -26,11 +26,12 @@ module unidad(
     input [15:0] a1,a2,a3,a4,//datos de la matriz
     input reset,
     input clk,
-    output [15:0] y //salida de un modulo
+    //output [15:0] y, //salida de un modulo
+    output wire [15:0] y1,y2,y3,y4
     );
-	wire [15:0] y1,y2,y3,y4;
 	
-	assign y = y4;
+	
+	//assign y = y4;
 	
 	proc modulo1(
 		.x(y4),
